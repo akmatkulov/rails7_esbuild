@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Rails7Esbuild</title>
+    <script src="https://kit.fontawesome.com/ecb049080c.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +12,18 @@
   </head>
 
   <body>
-    <%= yield %>
+      <div class="container">
+    <%= render 'shared/header'%>
+  </div>
+
+    
+    <div class="container">
+      <div class="row">
+      <% flash.each do |key, value| %>
+            <%= tag.div value, class: "alert alert-#{key} mt-3", role: "alert" %>
+        <% end %>
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
